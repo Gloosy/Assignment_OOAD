@@ -30,6 +30,7 @@ namespace OOAD_project_WinFormsApp
             {
                 SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
                 con.Open();
+                
                 String query = "INSERT INTO tbl_coach VALUES('" + name + "','" + phone + "','" + gender + "'," + age + ",'" + Description + "'," + CPrice + ")";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();

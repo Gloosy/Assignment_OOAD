@@ -193,6 +193,7 @@ namespace OOAD_project_WinFormsApp
             this.dgvUpdateData.ReadOnly = true;
             this.dgvUpdateData.RowHeadersWidth = 51;
             this.dgvUpdateData.RowTemplate.Height = 29;
+            this.dgvUpdateData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUpdateData.Size = new System.Drawing.Size(906, 351);
             this.dgvUpdateData.TabIndex = 49;
             this.dgvUpdateData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvViewData_CellContentClick);
