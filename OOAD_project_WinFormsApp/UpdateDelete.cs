@@ -178,8 +178,8 @@ namespace OOAD_project_WinFormsApp
                         coach.gender = cboGender.Text;
                         coach.age = Convert.ToInt32(txtAge.Text);
                         coach.CPrice = Convert.ToDouble(txtPrice.Text);
-                        coach.Description = txtDes.Text;                          
-                        coach.UpdateMember(id);
+                        coach.Description = txtDes.Text;
+                        coach.updateCoach(id);
                         loadData();
                     }
                     else
@@ -207,7 +207,7 @@ namespace OOAD_project_WinFormsApp
                         member.age = Convert.ToInt32(txtAge.Text);
                         member.MAmount = Convert.ToDouble(txtMAmount.Text);
                         member.MTiming = cboTiming.Text;
-                        member.UpdateMember(id);
+                        member.updateMember(id);
                         loadData();
                     }
                     else
@@ -235,7 +235,7 @@ namespace OOAD_project_WinFormsApp
                     {
                         try
                         {
-                            coach.DeleteMember(id);    
+                            coach.deleteCoach(id);  
                             loadData();
 
                         }
@@ -264,7 +264,7 @@ namespace OOAD_project_WinFormsApp
                     {
                         try
                         {
-                            member.DeleteMember(id);
+                            member.deleteMember(id);
                             loadData();
 
                         }

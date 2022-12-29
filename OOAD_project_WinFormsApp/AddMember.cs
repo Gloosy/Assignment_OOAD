@@ -40,7 +40,7 @@ namespace OOAD_project_WinFormsApp
                 member.age = Convert.ToInt32(txtAge.Text);
                 member.MAmount =Convert.ToDouble(txtMAount.Text);
                 member.MTiming = cboTiming.Text;
-                member.AddMember();
+                member.addMember();
                 txtName.Text = "";
                 txtPhone.Text = "";
                 txtAge.Text = "";

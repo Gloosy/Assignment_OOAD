@@ -145,6 +145,7 @@ namespace OOAD_project_WinFormsApp
             this.dgvPayment.Name = "dgvPayment";
             this.dgvPayment.RowHeadersWidth = 51;
             this.dgvPayment.RowTemplate.Height = 29;
+            this.dgvPayment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPayment.Size = new System.Drawing.Size(730, 421);
             this.dgvPayment.TabIndex = 49;
             // 

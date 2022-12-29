@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pzg69MiE5wADEf+LVRRJaP+3IUNNbnhRvEqZbJylwTLoTBDfMzTfkLs/Zoo09OyiEB8zmoYb4tDkPfYYUOa3fg==",
+  "dgSpecHash": "ZKqWYmoLiVVlAmj1XCa17oPOSnPxYzBeRYRp9gQ60mRqo1igu6bDi6vEh2l3qXXZkCqW3jYsvRXxD0sMTN+glA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Desktop\\OOAD_project_WinFormsApp\\OOAD_project_WinFormsApp\\OOAD_project_WinFormsApp.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\Desktop\\Lesson and Programming\\Projects\\OOAD_project_WinFormsApp\\OOAD_project_WinFormsApp\\OOAD_project_WinFormsApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

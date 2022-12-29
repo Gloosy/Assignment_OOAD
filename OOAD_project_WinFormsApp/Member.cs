@@ -8,11 +8,45 @@ using System.Windows.Forms;
 
 namespace OOAD_project_WinFormsApp
 {
-    class Member : Person
+    public interface IMember
     {
+        public string addMember();
+        public string deleteMember(int id);
+        public string updateMember(int id);
+    }
+    public class Abstraction
+    {
+        private IMember impMember;
+
+        public Abstraction(IMember implementation)
+        {
+            impMember = implementation;
+        }
+        public string addMember()
+        {
+            Console.WriteLine("testing add member in abstract");
+            return impMember.addMember();
+        }
+        public string deleteMember(int id)
+        {
+            Console.WriteLine("Testing delete member id :  ", id);
+            return impMember.deleteMember(id);
+        }
+        public string updateMember(int id)
+        {
+            Console.WriteLine("Testing update member id : ", id);
+            return impMember.updateMember(id);
+        }
+    }
+    class Member : Person, IMember
+    {
+        // varaible for store amount
         private double amount;
+        // varaible for store timing
         private String timing;
-       
+
+        // Sigleton Class
+        Connection conDB = Connection.Instance;
 
         public double MAmount
         {
@@ -24,51 +58,29 @@ namespace OOAD_project_WinFormsApp
             get { return this.timing; }
             set { this.timing = value; }
         }
-        public void AddMember()
+        public string addMember()
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                String query = "INSERT INTO tbl_member VALUES('" +name+ "','" + phone + "','" + gender + "'," + age + "," + MAmount + ",'" + MTiming + "')";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Added successfully");
-                con.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
+            string query = "INSERT INTO tbl_member VALUES('" + name + "','" + phone + "','" + gender + "'," + age + "," + MAmount + ",'" + MTiming + "')";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Added Sucessfully");
+            return "Status : 200";
         }
-        public void UpdateMember(int id)
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                String query = "UPDATE tbl_member SET MName = '" + name + "',MPhone = '" + phone + "',MGen = '" + gender + "',MAge = " + age + ",MAmount = " + MAmount + ",MTiming = '" + MTiming + "' WHERE Mid = " + id + "";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Member Updated Sucessfully");
-                con.Close();
-                
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public void DeleteMember(int id)
+        public string deleteMember(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-            con.Open();
-            String query = "DELETE FROM tbl_member WHERE Mid= " + id + "";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Member Deleted successfully");
-            con.Close();
+            string query = "DELETE FROM tbl_member WHERE Mid= " + id + "";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Deleted Successfully");
+            return "Status 200";
+        }
+
+        public string updateMember(int id)
+        {
+            string query = "UPDATE tbl_member SET MName = '" + name + "',MPhone = '" + phone + "',MGen = '" + gender + "',MAge = " + age + ",MAmount = " + MAmount + ",MTiming = '" + MTiming + "' WHERE Mid = " + id + "";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Updated Sucessfully");
+            return "Status 200";
         }
     }
+
 }

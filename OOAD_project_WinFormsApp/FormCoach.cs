@@ -26,7 +26,7 @@ namespace OOAD_project_WinFormsApp
             this.Hide();
         }
         SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-
+        public Coach Coach { get => coach; set => coach = value; }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtName.Text == "" || txtPhone.Text == "" || txtAge.Text == "" || txtDes.Text== "" || cboGender.Text == "" || txtPrice.Text == "")
@@ -35,13 +35,13 @@ namespace OOAD_project_WinFormsApp
             }
             else
             {
-                coach.name = txtName.Text;
-                coach.phone = txtPhone.Text;
-                coach.gender = cboGender.Text;
-                coach.age = Convert.ToInt32(txtAge.Text);
-                coach.Description = txtDes.Text;
-                coach.CPrice = Convert.ToDouble(txtPrice.Text);            
-                coach.AddMember();
+                Coach.name = txtName.Text;
+                Coach.phone = txtPhone.Text;
+                Coach.gender = cboGender.Text;
+                Coach.age = Convert.ToInt32(txtAge.Text);
+                Coach.Description = txtDes.Text;
+                Coach.CPrice = Convert.ToDouble(txtPrice.Text);
+                coach.addCoach();
                 txtName.Text = "";
                 txtPhone.Text = "";
                 txtAge.Text = "";

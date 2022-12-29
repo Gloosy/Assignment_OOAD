@@ -109,6 +109,7 @@ namespace OOAD_project_WinFormsApp
             this.dgvViewData.ReadOnly = true;
             this.dgvViewData.RowHeadersWidth = 51;
             this.dgvViewData.RowTemplate.Height = 29;
+            this.dgvViewData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvViewData.Size = new System.Drawing.Size(1128, 378);
             this.dgvViewData.TabIndex = 36;
             // 

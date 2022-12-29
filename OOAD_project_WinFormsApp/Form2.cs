@@ -45,5 +45,10 @@ namespace OOAD_project_WinFormsApp
             this.Hide();
 
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
