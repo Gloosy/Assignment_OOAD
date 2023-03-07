@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "319385d7-af39-4729-ad2e-0ad625cf2116": {
+      "ProjectGuid": "319385d7-af39-4729-ad2e-0ad625cf2116",
+      "DisplayName": "OOAD_project_WinFormsApp",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

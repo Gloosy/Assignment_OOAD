@@ -12,7 +12,8 @@ namespace OOAD_project_WinFormsApp
     {
         private double amount;
         private String timing;
-       
+        // Sigleton Class
+        Connection conDB = Connection.Instance;
 
         public double MAmount
         {
@@ -26,49 +27,22 @@ namespace OOAD_project_WinFormsApp
         }
         public void AddMember()
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                String query = "INSERT INTO tbl_member VALUES('" +name+ "','" + phone + "','" + gender + "'," + age + "," + MAmount + ",'" + MTiming + "')";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Added successfully");
-                con.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
+            string query = "INSERT INTO tbl_member VALUES('" + name + "','" + phone + "','" + gender + "'," + age + "," + MAmount + ",'" + MTiming + "')";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Added Sucessfully");
+          
         }
         public void UpdateMember(int id)
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                String query = "UPDATE tbl_member SET MName = '" + name + "',MPhone = '" + phone + "',MGen = '" + gender + "',MAge = " + age + ",MAmount = " + MAmount + ",MTiming = '" + MTiming + "' WHERE Mid = " + id + "";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Member Updated Sucessfully");
-                con.Close();
-                
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            string query = "UPDATE tbl_member SET MName = '" + name + "',MPhone = '" + phone + "',MGen = '" + gender + "',MAge = " + age + ",MAmount = " + MAmount + ",MTiming = '" + MTiming + "' WHERE Mid = " + id + "";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Updated Sucessfully");
         }
         public void DeleteMember(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-            con.Open();
-            String query = "DELETE FROM tbl_member WHERE Mid= " + id + "";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Member Deleted successfully");
-            con.Close();
+            string query = "DELETE FROM tbl_member WHERE Mid= " + id + "";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Member Deleted Successfully");
         }
     }
 }

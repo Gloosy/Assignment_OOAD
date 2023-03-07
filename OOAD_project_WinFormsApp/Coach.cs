@@ -12,7 +12,8 @@ namespace OOAD_project_WinFormsApp
     {
         private double price;
         private String des;
-        
+
+        Connection conDB = Connection.Instance;
        
         public double CPrice
         {
@@ -26,49 +27,21 @@ namespace OOAD_project_WinFormsApp
         }
         public void AddMember()
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                
-                String query = "INSERT INTO tbl_coach VALUES('" + name + "','" + phone + "','" + gender + "'," + age + ",'" + Description + "'," + CPrice + ")";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Added successfully");
-                con.Close();
-            }
-            catch (Exception Ex)
-            {
-                MessageBox.Show(Ex.Message);
-            }
+            string query = "INSERT INTO tbl_coach VALUES('" + name + "','" + phone + "','" + gender + "'," + age + ",'" + Description + "'," + CPrice + ")";
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Coach Added Sucessfully");
         }
         public void UpdateMember(int id)
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-                con.Open();
-                String query = "UPDATE tbl_coach SET CName = '" + name + "',CPhone = '" + phone + "',CGen = '" + gender + "',CAge = " + age + ",CDesciption = '"+Description+"',CPrice = "+CPrice+" WHERE Cid = " + id + "";                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Coach Updated Sucessfully");
-                con.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        {       
+            String query = "UPDATE tbl_coach SET CName = '" + name + "',CPhone = '" + phone + "',CGen = '" + gender + "',CAge = " + age + ",CDesciption = '"+Description+"',CPrice = "+CPrice+" WHERE Cid = " + id + "";               
+            conDB.connectionDatabase(query);
+            MessageBox.Show("Coach Updated Sucessfully");
         }
         public void DeleteMember(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CHHAY\SQL;Initial Catalog=OOAD;Integrated Security=True");
-            con.Open();
             String query = "DELETE FROM tbl_coach WHERE Cid= " + id + "";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
+            conDB.connectionDatabase(query);
             MessageBox.Show("Coach Deleted successfully");
-            con.Close();
         }
     }
 }
