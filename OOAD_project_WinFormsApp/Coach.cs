@@ -67,6 +67,7 @@ namespace OOAD_project_WinFormsApp
             set { this.des = value; }
         }
 
+
         public int id { get => person.id; set => person.id = value; }
         public string name { get => person.name; set => person.name = value; }
         public string phone { get => person.phone; set => person.phone = value; }
